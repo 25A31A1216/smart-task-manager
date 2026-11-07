@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">✓</span>
+                <h2>TaskFlow</h2>
+            </div>
+
+            <p class="menu-label">MENU</p>
+
+            <nav class="navigation">
+                <button class="nav-item active" data-filter="all">
+                    <span>▦</span> All Tasks
+                </button>
+                <button class="nav-item" data-filter="pending">
+                    <span>◷</span> Pending
+                </button>
+                <button class="nav-item" data-filter="completed">
+                    <span>✓</span> Completed
+                </button>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="tip-card">
+                    <span>💡</span>
+                    <h3>Stay Productive!</h3>
+                    <p>Small steps every day lead to big results.</p>
+                </div>
+                <p class="copyright">© 2026 TaskFlow</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <p class="welcome-text">YOUR WORKSPACE</p>
+                    <h1>My Tasks</h1>
+                </div>
+                <div class="profile">T</div>
+            </header>
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">▦</div>
+                    <p>Total Tasks</p>
+                    <h2 id="totalTasks">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">◷</div>
+                    <p>Pending</p>
+                    <h2 id="pendingTasks">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">✓</div>
+                    <p>Completed</p>
+                    <h2 id="completedTasks">0</h2>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">%</div>
+                    <p>Progress</p>
+                    <h2 id="progress">0%</h2>
+                </div>
+
+            </section>
+
+            <section class="task-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>My Task List</h2>
+                        <p>Organize your day and get things done.</p>
+                    </div>
+                    <button class="add-button" id="openFormBtn">
+                        + Add New Task
+                    </button>
+                </div>
+
+                <div class="toolbar">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search your tasks..."
+                    >
+
+                    <select id="priorityFilter">
+                        <option value="all">All Priorities</option>
+                        <option value="high">High Priority</option>
+                        <option value="medium">Medium Priority</option>
+                        <option value="low">Low Priority</option>
+                    </select>
+                </div>
+
+                <form id="taskForm" class="task-form hidden">
+
+                    <h3 id="formTitle">Add New Task</h3>
+
+                    <label for="taskTitle">Task Title</label>
+                    <input
+                        type="text"
+                        id="taskTitle"
+                        placeholder="Enter task title"
+                        required
+                    >
+
+                    <label for="taskDescription">Description</label>
+                    <textarea
+                        id="taskDescription"
+                        placeholder="Enter task description"
+                    ></textarea>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="taskPriority">Priority</label>
+                            <select id="taskPriority">
+                                <option value="low">Low</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="taskDate">Due Date</label>
+                            <input type="date" id="taskDate">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="cancel-button" id="cancelBtn">
+                            Cancel
+                        </button>
+                        <button type="submit" class="save-button" id="saveBtn">
+                            Save Task
+                        </button>
+                    </div>
+
+                </form>
+
+                <div class="task-list" id="taskList"></div>
+
+                <div class="empty-state hidden" id="emptyState">
+                    <div class="empty-icon">📝</div>
+                    <h3>No tasks found</h3>
+                    <p>Add a new task to get started!</p>
+                </div>
+
+            </section>
+
+            <footer>
+                Made with ❤️ using HTML, CSS & JavaScript
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
